@@ -1,0 +1,11 @@
+{
+    "name": "tacdom",
+    "version": "0.0.1",
+    "description": "When Lemmings Attack - Tactical Domination",
+    "keywords": ["turn-based", "strategy", "multiplayer", "game"],
+    "homepage": "http://remer.us/wla",
+    "license": "MIT",
+    "dependencies": {
+        "express": "~3.4"
+    }
+}
