@@ -17,7 +17,7 @@ app.use(express.session({
 
 // redirect homepage to appropriate static asset
 app.get("/", function(req, rsp) {
-    rsp.redirect("/tactical-domination.html");
+    rsp.redirect("/tacdom.html");
 });
 
 // begin listening
