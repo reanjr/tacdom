@@ -1,0 +1,30 @@
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin pos($top, $right, $bottom, $left) {
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+  top: $top;
+}
+
+@mixin posrel($top, $right, $bottom, $left) {
+  position: relative;
+
+  @include pos($top, $right, $bottom, $left);
+}
+
+@mixin posabs($top, $right, $bottom, $left) {
+  position: absolute;
+
+  @include pos($top, $right, $bottom, $left);
+}

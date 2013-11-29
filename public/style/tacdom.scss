@@ -1,0 +1,10 @@
+@import "reset";
+@import "common";
+@import "colors";
+
+body {
+  background-color: $dark;
+
+  @include box-shadow(0, 0, 10em, $shadow, true);
+  @include posabs(0, 0, 0, 0);
+}
