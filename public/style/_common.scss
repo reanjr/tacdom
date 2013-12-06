@@ -28,3 +28,8 @@
 
   @include pos($top, $right, $bottom, $left);
 }
+
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
+}
