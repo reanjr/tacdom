@@ -4,13 +4,18 @@
 
 body {
   background-color: $dark;
-  font-family: Arial, sans-serif;
 
   @include box-shadow(0, 0, 10em, $shadow, true);
   @include posabs(0, 0, 0, 0);
 }
 
 #tacdom {
+  font-family: Arial, sans-serif;
+
+  @include posabs(0, 0, 0, 0);
+}
+
+.blurb {
   background-color: $light;
   color: $shadow;
   line-height: 7em;
