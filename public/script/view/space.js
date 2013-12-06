@@ -9,6 +9,8 @@ define(["wire/view"], function(View) {
         var obj = (this == Space) ? Object.create(Space) : this;
         View.create.call(obj, elem);
 
+        elem && elem.classList.add("-space");
+
         // if Space already has content, add it as a view
         var content = obj.elem.innerHTML.trim();
         if (content) {
