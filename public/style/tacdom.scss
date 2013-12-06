@@ -4,7 +4,21 @@
 
 body {
   background-color: $dark;
+  font-family: Arial, sans-serif;
 
   @include box-shadow(0, 0, 10em, $shadow, true);
   @include posabs(0, 0, 0, 0);
+}
+
+#tacdom {
+  background-color: $light;
+  color: $shadow;
+  line-height: 7em;
+  margin: auto;
+  text-align: center;
+
+  @include box-shadow(0, 0, 2em, $shadow);
+  @include box-shadow(0, 0, 1em, #aaa, true);
+  @include posabs(0, 0, 0, 0);
+  @include size(7em, 7em);
 }
