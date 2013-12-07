@@ -33,3 +33,9 @@
   height: $height;
   width: $width;
 }
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
