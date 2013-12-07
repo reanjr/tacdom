@@ -1,6 +1,6 @@
 <form class="dialog">
     <fieldset class="frame">
         {{#caption}}<label>{{/caption}}{{caption}}{{#caption}}</label>{{/caption}}
-        <input placeholder="Commander Name" />
+        <input placeholder="{{suggestion}}" />
     </fieldset>
 </form>
