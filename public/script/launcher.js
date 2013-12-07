@@ -1,4 +1,4 @@
-require(["require", "view/space"], function(require, Space) {
+require(["require", "view/space", "data/namer"], function(require, Space, Namer) {
     // find view target
     var target = document.getElementById("tacdom")
             || document.getElementsByClassName("tacdom")[0]
@@ -9,6 +9,9 @@ require(["require", "view/space"], function(require, Space) {
 
     // get commander name from user
     require(["stache!/template/text-box"], function(textBox) {
-        space.show(textBox({caption: "What is your commander name?"}));
+        space.show(textBox({
+            caption: "Who leads your warrior band?",
+            suggestion: Namer.commander()
+        }));
     });
 });
