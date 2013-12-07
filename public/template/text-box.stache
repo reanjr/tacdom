@@ -1,9 +1,6 @@
 <form class="dialog">
-    {{! wrap caption in a label if present }}
-    {{#caption}}<label>{{/caption}}
-        {{caption}}
-    {{#caption}}</label>{{/caption}}
-
-    <input placeholder="Commander Name" />
-
+    <fieldset class="frame">
+        {{#caption}}<label>{{/caption}}{{caption}}{{#caption}}</label>{{/caption}}
+        <input placeholder="Commander Name" />
+    </fieldset>
 </form>

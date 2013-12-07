@@ -8,6 +8,7 @@ html {
   font-size: 125%;
   font-family: "Alegreya Sans", Arial, sans-serif;
   font-weight: 500;
+  line-height: 1em;
 }
 
 body {
@@ -28,35 +29,58 @@ body {
   color: $shadow;
   display: inline-block;
   margin: auto;
+  padding: 1rem;
 
   @include box-shadow(0, 0, 1rem, #aaa, true);
   @include posabs(0, 0, 0, 0);
 }
 
 span.dialog {
-  line-height: 5rem;
+  line-height: 3rem;
   text-align: center;
 
   @include size(7rem, 5rem);
 }
 
 form.dialog {
-  padding: 1rem;
+  border-radius: 1rem;
 
-  @include size(20rem, 7rem);
+  @include size(20rem, 6.5rem);
+}
+
+form label, form input {
+  display: block;
+  height: 1.5rem;
+  margin: 0.5rem auto;
+  padding: 0.15rem;
+  text-align: center;
 }
 
 form label {
-  display: block;
-  margin: 0.5rem auto;
-  text-align: center;
+  line-height: 1.2rem;
 }
 
 form input {
-  display: block;
+  border: 0;
   font-family: inherit;
   font-size: 1.2rem;
   font-weight: inherit;
-  margin: 0.5rem auto;
-  text-align: center;
+
+  @include box-shadow(0, 0, 0.5rem, #aaa, true);
+}
+
+.frame {
+  border: 0;
+  margin: auto;
+  padding: 1rem;
+
+  @include  posabs(0, 0, 0, 0);
+}
+
+.-space-view {
+  display: none;
+}
+
+.-space-view.active {
+  display: block;
 }
