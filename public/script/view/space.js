@@ -17,6 +17,8 @@ define(["wire/view"], function(View) {
             obj.elem.innerHTML = "";
             obj.show(content);
         }
+
+        return obj;
     }
 
     Space.activate = function(view) {
