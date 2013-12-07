@@ -2,10 +2,18 @@
 @import "common";
 @import "colors";
 
+@import url(//fonts.googleapis.com/css?family=Alegreya+Sans:500);
+
+html {
+  font-size: 125%;
+  font-family: "Alegreya Sans", Arial, sans-serif;
+  font-weight: 500;
+}
+
 body {
   background-color: $dark;
 
-  @include box-shadow(0, 0, 10em, $shadow, true);
+  @include box-shadow(0, 0, 10rem, $shadow, true);
   @include posabs(0, 0, 0, 0);
 }
 
@@ -15,14 +23,39 @@ body {
   @include posabs(0, 0, 0, 0);
 }
 
-.blurb {
+.dialog {
   background-color: $light;
   color: $shadow;
-  line-height: 7em;
+  display: inline-block;
   margin: auto;
+
+  @include box-shadow(0, 0, 1rem, #aaa, true);
+  @include posabs(0, 0, 0, 0);
+}
+
+span.dialog {
+  line-height: 5rem;
   text-align: center;
 
-  @include box-shadow(0, 0, 1em, #aaa, true);
-  @include posabs(0, 0, 0, 0);
-  @include size(7em, 7em);
+  @include size(7rem, 5rem);
+}
+
+form.dialog {
+  padding: 1rem;
+
+  @include size(20rem, 7rem);
+}
+
+form label {
+  display: block;
+  text-align: center;
+}
+
+form input {
+  display: block;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: inherit;
+  margin: 0.5rem auto;
+  text-align: center;
 }
