@@ -8,6 +8,9 @@ redis.on("error", function(err) {
     console.error(err);
 });
 
+// default configuration
+app.set("port", 1007);
+
 // serve static assets from public folder
 app.use(express.static("public"));
 
@@ -26,4 +29,4 @@ app.get("/", function(req, rsp) {
 });
 
 // begin listening
-app.listen(1007);
+app.listen(app.get("port"));
