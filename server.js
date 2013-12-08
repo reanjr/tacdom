@@ -3,6 +3,11 @@ var express = require("express"),
     RedisStore = require("connect-redis")(express),
     app = express();
 
+// send redis errors to console
+redis.on("error", function(err) {
+    console.error(err);
+});
+
 // serve static assets from public folder
 app.use(express.static("public"));
 
