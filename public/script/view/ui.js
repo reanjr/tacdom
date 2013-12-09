@@ -1,8 +1,8 @@
-define(["view/space"],
-function(Space) {
+define(["view/portal"],
+function(Portal) {
 
     return {
-        Space: Space
+        Portal: Portal
     };
 
 });

@@ -1,12 +1,12 @@
 define(["wire/view"], function(View) {
 
-    var Space = Object.create(View);
+    var Portal = Object.create(View);
 
-    Space.views = [];
-    Space.active = null;
+    Portal.views = [];
+    Portal.active = null;
 
-    Space.create = function(elem) {
-        var obj = (this == Space) ? Object.create(Space) : this;
+    Portal.create = function(elem) {
+        var obj = (this == Portal) ? Object.create(Portal) : this;
         View.create.call(obj, elem);
 
         elem && elem.classList.add("-space");
@@ -21,7 +21,7 @@ define(["wire/view"], function(View) {
         return obj;
     }
 
-    Space.activate = function(view) {
+    Portal.activate = function(view) {
         if (view instanceof String) {
             for (var i in this.views) {
                 if (this.views[i].dataset.name == view) {
@@ -46,7 +46,7 @@ define(["wire/view"], function(View) {
         }
     };
 
-    Space.add = function(name, content) {
+    Portal.add = function(name, content) {
         var newView = this.createView(content, name);
 
         this.views.unshift(newView);
@@ -57,7 +57,7 @@ define(["wire/view"], function(View) {
             this.activate(name);
     };
 
-    Space.createView = function(content, name) {
+    Portal.createView = function(content, name) {
         var container = document.createElement("div");
 
         container.classList.add("-space-view");
@@ -68,7 +68,7 @@ define(["wire/view"], function(View) {
         return container;
     };
 
-    Space.show = function(content) {
+    Portal.show = function(content) {
         var newView = this.createView(content),
             activeView = this.active;
 
@@ -81,6 +81,6 @@ define(["wire/view"], function(View) {
         this.elem.appendChild(newView);
     }
 
-    return Space;
+    return Portal;
 
 });
