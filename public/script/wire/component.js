@@ -17,14 +17,25 @@ define(function() {
 
     Component.trigger = function(event) {
         if (this.triggers[event]) {
-            var that = this,
+            var component = this,
                 args = Array.prototype.slice.call(arguments, 1);
 
             this.triggers[event].forEach(function(call) {
-                setTimeout(function() {call.apply(that, args)}, 0);
+                setTimeout(function() {call.apply(component, args)}, 0);
             });
         }
     };
+
+    Component.wire = function(call, thisArg) {
+        var handler = thisArg
+            ? function() {call.apply(thisArg, arguments)}
+            : call;
+        this.on("emit", handler);
+    }
+
+    Component.emit = function(val) {
+        this.trigger("emit", val);
+    }
 
     return Component;
 

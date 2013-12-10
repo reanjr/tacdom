@@ -72,6 +72,7 @@ define(["wire/component", "wire/context"], function(Component, Context) {
         if (tpl instanceof Function) this.tpl = tpl;
         if (this.tpl instanceof Function) {
             this.elem.innerHTML = this.tpl(this.props());
+            return true;
         }
     }
 
