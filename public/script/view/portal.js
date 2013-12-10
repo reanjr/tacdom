@@ -6,15 +6,15 @@ define(["wire/view"], function(View) {
     Portal.views = [];
     Portal.active = null;
 
+    /**
+     * Construct a Portal.
+     * @param {string|HTMLElement} [elem]
+     * @returns {Portal}
+     */
     Portal.create = function(elem) {
         var obj = (this == Portal) ? Object.create(Portal) : this;
         View.create.call(obj, elem);
 
-        // if portal element already has content, initialize by showing it
-        if (obj.elem.innerHTML.trim()) {
-            var view = View.create(obj.elem.innerHTML.trim()).elem;
-
-        }
         var content = obj.elem.innerHTML.trim();
         if (content) {
             obj.elem.innerHTML = "";
@@ -24,6 +24,10 @@ define(["wire/view"], function(View) {
         return obj;
     }
 
+    /**
+     * Active a previously added view.
+     * @param {string} view
+     */
     Portal.activate = function(view) {
         if (view instanceof String) {
             for (var i in this.views) {
@@ -49,6 +53,11 @@ define(["wire/view"], function(View) {
         }
     };
 
+    /**
+     * Add a named view.
+     * @param {string} name
+     * @param {HTMLElement} elem
+     */
     Portal.add = function(name, elem) {
         var newView = this.createView(elem, name);
 
@@ -60,6 +69,12 @@ define(["wire/view"], function(View) {
             this.activate(name);
     };
 
+    /**
+     * Create a new orphaned view.
+     * @param {HTMLElement} elem
+     * @param {string} [name]
+     * @returns {HTMLElement}
+     */
     Portal.createView = function(elem, name) {
         var container = document.createElement("div");
 
@@ -71,6 +86,10 @@ define(["wire/view"], function(View) {
         return container;
     };
 
+    /**
+     * Display arbitrary content in the Portal.
+     * @param {HTMLElement} elem
+     */
     Portal.show = function(elem) {
         var newView = this.createView(elem),
             activeView = this.active;
