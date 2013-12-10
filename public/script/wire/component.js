@@ -5,7 +5,7 @@ define(function() {
     Component.triggers = {};
 
     /**
-     * Construct a Component.  If the call has "this" bound, apply as a mixin.
+     * Construct a Component.
      * @returns {Component}
      */
     Component.create = function() {
