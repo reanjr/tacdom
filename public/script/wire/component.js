@@ -12,7 +12,7 @@ define(function() {
     Component.on = function(event, call) {
         if (!this.triggers[event])
             this.triggers[event] = [];
-        this.triggers.push(call);
+        this.triggers[event].push(call);
     };
 
     Component.trigger = function(event) {

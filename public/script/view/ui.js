@@ -1,8 +1,9 @@
-define(["view/portal"],
-function(Portal) {
+define(["view/portal", "view/text-box"],
+function(Portal, TextBox) {
 
     return {
-        Portal: Portal
+        Portal: Portal,
+        TextBox: TextBox
     };
 
 });

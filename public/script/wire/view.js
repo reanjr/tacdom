@@ -4,6 +4,7 @@ define(["wire/component", "wire/context"], function(Component, Context) {
 
     View.elem = null;
     View.name = "view";
+    View.tpl = null;
 
     // mixin Context
     for (var prop in Context)
@@ -21,7 +22,7 @@ define(["wire/component", "wire/context"], function(Component, Context) {
 
         obj.elem = this.prepareElement(elem);
         if (tpl instanceof Function) {
-            obj.elem.innerHTML = tpl(this.props());
+            obj.refresh(tpl);
         }
 
         return obj;
@@ -64,6 +65,13 @@ define(["wire/component", "wire/context"], function(Component, Context) {
 
         else {
             return document.createElement("div");
+        }
+    }
+
+    View.refresh = function(tpl) {
+        if (tpl instanceof Function) this.tpl = tpl;
+        if (this.tpl instanceof Function) {
+            this.elem.innerHTML = this.tpl(this.props());
         }
     }
 
