@@ -12,7 +12,7 @@ Android, in that order.
 
 The game software (Tactical Domination or tacdom) will be free and open source.
 Engagement Mode will be free to play on all platforms.  This serves as a demo.
-Campaign Mode ands Chronicle Mode will only be freely available in the browser.
+Campaign Mode and Chronicle Mode will only be freely available in the browser.
 Additional themes and modes will be available for purchase in the Chrome Web
 Store and Play Store.
 
