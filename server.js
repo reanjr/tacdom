@@ -81,3 +81,4 @@ app.post("/commander", function(req, rsp) {
 
 // begin listening
 app.listen(app.get("port"));
+console.log("listening on port " + app.get("port"));
