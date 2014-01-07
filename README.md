@@ -26,12 +26,15 @@ Dependencies
 
 Alpha
 -----
+For initial testing, the game will target the following features.  This will
+serve to provide some baseline feedback on the game mechanics.
+
  * Authentication by session id (no player accounts)
  * Session associated to a named Commander unit
  * Statistics tracked for Commander and other units
  * Create Engagement
-   - N/S/E/W deployment tiles (4 players max, [2?])
-   - map size 4 (deployment at 4W, 4E, 4N, 4S)
+   - N/S/E/W deployment tiles (4 players max, [W/E 2 players?])
+   - map size 4 (deployment at 4W, 4E, 4N, 4S, around origin O)
    - turn-based deployment (one turn per unit)
    - 1 of each unit
      * Commander (Command action)
@@ -43,9 +46,9 @@ Alpha
    - start game
  * Initiative
    - each unit is assigned an initial order randomly
-   - link units in bidirectional circle
+   - place units in circular doubly linked list
    - unit gets 2 actions on their turn
-   - each skipped action moves unit forward in initiative circle
+   - each skipped action moves uit intiative forward one place
  * Actions
    - Attack - physically attack another unit
    - Move - move number of tiles up to unit speed
@@ -60,30 +63,30 @@ Engagement Mode
 
 Campaign Mode
 -------------
- - play series of sessions as standalone game or part of a chronicle
+ - standalone series of engagements or part of a chronicle
  - start with small number of combat units
- - each turn triggers an engagement
+ - each turn triggers engagement or provides options
 
 Chronicle Mode
 --------------
  - persistent MMO game
- - start as small hunter gathering tribe
+ - start as small hunter gatherer tribe
  - breed, research, train
  - build forces and send them on campaigns for rewards
  - lasts as long as the player desires
 
-Markup/CSS Conventions
-----------------------
+Technical Notes
+---------------
+
+### Markup/CSS Conventions
  - dynamically-generated (but not dynamically injected) content should use class
    names beginning with a hyphen (ex.: -foo-thing)
 
-Script Conventions
-------------------
+### Script Conventions
  - use "t" prefix for AMD loaded templates
    require(["stache!foo"], function(tFoo) {})
 
-UI Architecture
----------------
+### UI Architecture
 Games - ResourceCollection
  - .on("create", function(res) {
       EngagementSetup.bind(res)
