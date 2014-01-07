@@ -25,7 +25,7 @@ define(["wire/view"], function(View) {
     }
 
     /**
-     * Active a previously added view.
+     * Activate a named view.
      * @param {string} view
      */
     Portal.activate = function(view) {
