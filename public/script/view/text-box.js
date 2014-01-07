@@ -31,7 +31,7 @@ define(["wire/view", "stache!/template/text-box"], function(View, tpl) {
         });
 
         form && form.addEventListener("submit", function(evt) {
-            textBox.emit(input.value);
+            textBox.emit(textBox.get("value") || textBox.get("suggestion"));
             evt.preventDefault();
         });
     };
