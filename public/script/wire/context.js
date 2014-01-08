@@ -4,12 +4,20 @@ define(["wire/component"], function(Component) {
 
     Context.instanceProps = {};
 
+    /**
+     * Initialize the Context.
+     * @param {object} [props]
+     */
     Context.init = function(props) {
         this.instanceProps = {};
         for (var prop in props)
             this.instanceProps[prop] = props[prop];
     }
 
+    /**
+     * Return the set properties.
+     * @returns {object}
+     */
     Context.props = function() {
         var props = {};
 
@@ -19,6 +27,11 @@ define(["wire/component"], function(Component) {
         return props;
     }
 
+    /**
+     * Set a property.
+     * @param {string} prop
+     * @param {*} val
+     */
     Context.set = function(prop, val) {
         var old = this.get(prop);
 
@@ -29,6 +42,11 @@ define(["wire/component"], function(Component) {
         this.trigger("change", prop, val, old);
     }
 
+    /**
+     * Return a property.
+     * @param {string} prop
+     * @returns {*}
+     */
     Context.get = function(prop) {
         return this.instanceProps[prop];
     }
