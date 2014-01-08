@@ -23,6 +23,7 @@ Dependencies
    free of logic
  * Require.js for dependency injection - if needed, may be used in node to
    facilitate code reuse between client and server
+ * Famo.us - once engine is released, web client will be ported to it
 
 Alpha
 -----
