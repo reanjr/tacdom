@@ -1,31 +1,22 @@
-define(["wire/component", "wire/context"], function(Component, Context) {
+define(["wire/context"], function(Context) {
 
-    var View = Object.create(Component);
+    var View = Object.create(Context);
 
     View.elem = null;
     View.name = "view";
     View.tpl = null;
 
-    // mixin Context
-    for (var prop in Context)
-        if (Context[prop] instanceof Function)
-            View[prop] = Context[prop];
-
-    View.create = function(elem, tpl) {
+    View.init = function(elem, tpl) {
         if (arguments.length == 1 && elem instanceof Function) {
             tpl = elem, elem = null;
         }
 
-        var obj = (this == View) ? Object.create(View) : this;
-        Component.create.call(obj);
-        Context.create.call(obj);
+        Context.init.call(this);
 
-        obj.elem = this.prepareElement(elem);
+        this.elem = this.prepareElement(elem);
         if (tpl instanceof Function) {
-            obj.refresh(tpl);
+            this.refresh(tpl);
         }
-
-        return obj;
     }
 
     View.prepareElement = function(markup) {

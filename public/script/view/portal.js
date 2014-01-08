@@ -7,21 +7,17 @@ define(["wire/view"], function(View) {
     Portal.active = null;
 
     /**
-     * Construct a Portal.
+     * Initialize the Portal.
      * @param {string|HTMLElement} [elem]
-     * @returns {Portal}
      */
-    Portal.create = function(elem) {
-        var obj = (this == Portal) ? Object.create(Portal) : this;
-        View.create.call(obj, elem);
+    Portal.init = function(elem) {
+        View.init.call(this, elem);
 
-        var content = obj.elem.innerHTML.trim();
+        var content = this.elem.innerHTML.trim();
         if (content) {
-            obj.elem.innerHTML = "";
-            obj.show(View.element(content));
+            this.elem.innerHTML = "";
+            this.show(View.element(content));
         }
-
-        return obj;
     }
 
     /**

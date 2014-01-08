@@ -9,7 +9,11 @@ define(function() {
      * @returns {Component}
      */
     Component.create = function() {
-        var obj = (this == Component) ? Object.create(Component) : this;
+        var obj = Object.create(this);
+
+        if (obj.init instanceof Function)
+            obj.init.apply(obj, arguments);
+
         return obj;
     }
 

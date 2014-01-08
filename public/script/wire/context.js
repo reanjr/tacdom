@@ -4,14 +4,10 @@ define(["wire/component"], function(Component) {
 
     Context.instanceProps = {};
 
-    Context.create = function(props) {
-        var obj = (this == Context) ? Object.create(Context) : this;
-
-        obj.instanceProps = {};
+    Context.init = function(props) {
+        this.instanceProps = {};
         for (var prop in props)
-            obj.instanceProps[prop] = props[prop];
-
-        return obj;
+            this.instanceProps[prop] = props[prop];
     }
 
     Context.props = function() {

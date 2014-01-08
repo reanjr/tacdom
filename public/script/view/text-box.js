@@ -2,22 +2,19 @@ define(["wire/view", "stache!/template/text-box"], function(View, tpl) {
 
     var TextBox = Object.create(View);
 
-    TextBox.create = function(elem, caption, suggestion) {
+    TextBox.init = function(elem, caption, suggestion) {
         if (!(elem instanceof HTMLElement)) {
             suggestion = caption, caption = elem, elem = null;
         }
 
-        var obj = (this == TextBox) ? Object.create(TextBox) : this;
-        View.create.call(obj, elem, tpl);
+        View.init.call(this, elem, tpl);
 
-        obj.on("change", function() {
+        this.on("change", function() {
             if (this.refresh()) this.addEventListeners();
-        });
+        })
 
-        obj.set("caption", caption);
-        obj.set("suggestion", suggestion);
-
-        return obj;
+        this.set("caption", caption);
+        this.set("suggestion", suggestion);
     }
 
     TextBox.addEventListeners = function() {
