@@ -11,13 +11,12 @@ define(["wire/component"], function(Component) {
     }
 
     Context.props = function() {
-        var proto = Object.getPrototypeOf(this),
-            vals = (proto.all instanceof Function) ? proto.all() : {};
+        var props = {};
 
         for (var prop in this.instanceProps)
-            vals[prop] = this.instanceProps[prop];
+            props[prop] = this.instanceProps[prop];
 
-        return vals;
+        return props;
     }
 
     Context.set = function(prop, val) {
