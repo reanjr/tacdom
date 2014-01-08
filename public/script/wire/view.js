@@ -6,6 +6,11 @@ define(["wire/context"], function(Context) {
     View.name = "view";
     View.tpl = null;
 
+    /**
+     * Initialize the View
+     * @param {HTMLElement|View|string} [elem]
+     * @param {function} [tpl]
+     */
     View.init = function(elem, tpl) {
         if (arguments.length == 1 && elem instanceof Function) {
             tpl = elem, elem = null;
@@ -19,6 +24,11 @@ define(["wire/context"], function(Context) {
         }
     }
 
+    /**
+     * Prepare an element for the View.
+     * @param {HTMLElement|View|string} markup
+     * @returns {*}
+     */
     View.prepareElement = function(markup) {
         var elem = this.element(markup);
 
@@ -33,6 +43,11 @@ define(["wire/context"], function(Context) {
         return elem;
     }
 
+    /**
+     * Create element from HTMLElement, View, or string markup
+     * @param {HTMLElement|View|string} markup
+     * @returns {HTMLElement}
+     */
     View.element = function(markup) {
         if (markup instanceof HTMLElement) {
             return markup;
@@ -59,6 +74,11 @@ define(["wire/context"], function(Context) {
         }
     }
 
+    /**
+     * Execute View template and refresh the document view.
+     * @param {function} [tpl]
+     * @returns {boolean}
+     */
     View.refresh = function(tpl) {
         if (tpl instanceof Function) this.tpl = tpl;
         if (this.tpl instanceof Function) {
