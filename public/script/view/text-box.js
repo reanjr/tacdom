@@ -2,6 +2,12 @@ define(["wire/view", "stache!/template/text-box"], function(View, tpl) {
 
     var TextBox = Object.create(View);
 
+    /**
+     * Initialize the TextBox.
+     * @param {HTMLElement} [elem]
+     * @param {string} caption
+     * @param {string} [suggestion]
+     */
     TextBox.init = function(elem, caption, suggestion) {
         if (!(elem instanceof HTMLElement)) {
             suggestion = caption, caption = elem, elem = null;
@@ -17,6 +23,9 @@ define(["wire/view", "stache!/template/text-box"], function(View, tpl) {
         this.set("suggestion", suggestion);
     }
 
+    /**
+     * Attach event listeners to the document view.
+     */
     TextBox.addEventListeners = function() {
         var textBox = this,
             form = this.elem.getElementsByTagName("form")[0],
