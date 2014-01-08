@@ -1,4 +1,4 @@
-require(["require", "view/ui", "data/namer"], function(require, ui, Namer) {
+require(["view/ui", "data/namer"], function(ui, Namer) {
     // find view target
     var target = document.getElementById("tacdom")
             || document.getElementsByClassName("tacdom")[0]
