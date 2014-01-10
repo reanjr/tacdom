@@ -79,6 +79,11 @@ Chronicle Mode
 Technical Notes
 ---------------
 
+### Resource Models
+
+ - Collection - post to create new resource
+ - Resource - get to fetch, put to update, delete to purge
+
 ### Markup/CSS Conventions
  - dynamically-generated (but not dynamically injected) content should use class
    names beginning with a hyphen (ex.: -foo-thing)
