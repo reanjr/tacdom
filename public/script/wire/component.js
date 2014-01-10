@@ -61,6 +61,15 @@ define(function() {
     }
 
     /**
+     * Trigger an error.
+     * @param {string} msg
+     * @param {*} data
+     */
+    Component.error = function(msg, data) {
+        this.trigger("error", msg, data);
+    }
+
+    /**
      * Create a socket for the specified call and arguments.
      * @param {string} call
      * @param {...*} args
